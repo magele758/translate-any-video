@@ -88,6 +88,14 @@ Server listens on `http://0.0.0.0:8765`, WebSocket at `ws://localhost:8765/ws`.
 
 `captureStream()` may fail on DRM content. Try non-DRM video sources instead.
 
+## TODO
+
+- [ ] Real-time audio playback replacement (TTS) not fully working yet
+- [ ] System-level real-time subtitle generation
+- [ ] Multi-language support (optional)
+- [ ] Integrate voice model services for same-timbre audio generation
+- [ ] Webcam-based real-time audio replacement
+
 ## Pipeline test
 
 ```bash
