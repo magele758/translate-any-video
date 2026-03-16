@@ -1,0 +1,39 @@
+#asr-translate-overlay {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 90%;
+  max-height: 70vh;
+  padding: 14px 24px;
+  background: rgba(0, 0, 0, 0.88);
+  color: #fff;
+  font-size: 18px;
+  line-height: 1.6;
+  border-radius: 10px;
+  z-index: 2147483647;
+  pointer-events: auto;
+  transition: opacity 0.2s, transform 0.2s;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  overflow-y: auto;
+}
+#asr-translate-overlay.transcript-content {
+  min-width: 360px;
+  text-align: left;
+}
+#asr-translate-overlay.transcript-content .zh {
+  margin: 0 0 12px;
+  font-size: 1.05em;
+}
+#asr-translate-overlay.transcript-content .en {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.9em;
+}
+#asr-translate-overlay.error {
+  color: #ffb4ab;
+}
+#asr-translate-overlay.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}

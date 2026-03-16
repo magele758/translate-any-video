@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body { width: 320px; padding: 14px; font-family: system-ui, sans-serif; font-size: 13px; }
+    h3 { margin: 0 0 12px; font-size: 15px; }
+    label { display: block; margin-top: 10px; color: #5f6368; }
+    input[type="text"], select { width: 100%; padding: 8px; margin-top: 4px; box-sizing: border-box; border: 1px solid #dadce0; border-radius: 4px; }
+    .row { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+    .btn { flex: 1; min-width: 70px; padding: 10px; cursor: pointer; border: none; border-radius: 4px; font-size: 13px; }
+    .btn.primary { background: #1a73e8; color: #fff; }
+    .btn.primary:hover { background: #1557b0; }
+    .btn.secondary { background: #e8eaed; color: #3c4043; }
+    .btn.secondary:hover { background: #dadce0; }
+    .btn.success { background: #1e8e3e; color: #fff; }
+    .btn.success:hover { background: #188038; }
+    .status { margin-top: 10px; font-size: 12px; padding: 6px; border-radius: 4px; }
+    .status.error { color: #d93025; background: #fce8e6; }
+    .status.ok { color: #1e8e3e; background: #e6f4ea; }
+    .status.info { color: #5f6368; }
+    .mode-group { display: flex; gap: 8px; margin-top: 6px; }
+    .mode-btn { flex: 1; padding: 8px; border: 1px solid #dadce0; border-radius: 4px; background: #fff; cursor: pointer; font-size: 12px; }
+    .mode-btn.active { border-color: #1a73e8; background: #e8f0fe; color: #1a73e8; }
+  </style>
+</head>
+<body>
+  <h3>视频音频英译中</h3>
+  <label>模式</label>
+  <div class="mode-group">
+    <button class="mode-btn active" id="modeRealtime">实时字幕</button>
+    <button class="mode-btn" id="modeBatch">批量提取</button>
+  </div>
+  <label>服务地址</label>
+  <input type="text" id="serverUrl" placeholder="ws://localhost:8765/ws">
+  <label>字号</label>
+  <select id="fontSize">
+    <option value="16">16px</option>
+    <option value="18" selected>18px</option>
+    <option value="20">20px</option>
+    <option value="24">24px</option>
+  </select>
+  <label>位置</label>
+  <select id="position">
+    <option value="bottom">底部居中</option>
+    <option value="top">顶部居中</option>
+  </select>
+  <label style="display: flex; align-items: center; gap: 8px; margin-top: 6px;">
+    <input type="checkbox" id="showSubtitle" checked>
+    <span>显示字幕</span>
+  </label>
+  <label style="display: flex; align-items: center; gap: 8px; margin-top: 6px;">
+    <input type="checkbox" id="ttsEnabled" checked>
+    <span>Edge-TTS 语音播放</span>
+  </label>
+  <div class="row" id="realtimeBtns">
+    <button class="btn primary" id="start">开始</button>
+    <button class="btn secondary" id="stop">停止</button>
+  </div>
+  <div class="row">
+    <button class="btn secondary" id="testTts" style="font-size: 11px;">测试 TTS</button>
+  </div>
+  <div class="row" id="batchBtns" style="display: none;">
+    <button class="btn primary" id="startBatch">开始录制</button>
+    <button class="btn success" id="finish">完成提取</button>
+    <button class="btn secondary" id="stopBatch">清除</button>
+  </div>
+  <div class="status info" id="status">实时字幕：边播边译。批量提取：录制后一次性解析全文。</div>
+  <script src="popup.js"></script>
+</body>
+</html>
